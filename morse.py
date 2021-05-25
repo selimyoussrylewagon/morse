@@ -33,6 +33,11 @@ def decode(message):
     if message == "":
         return ""
 
-    symbols = message.split(" ")
+    words = message.split(" / ")
+    decoded_words = [decode_word(word) for word in words]
+    return ' '.join(decoded_words)
+
+def decode_word(word):
+    symbols = word.split(" ")
     letters = [ALPHABET[s] for s in symbols]
     return ''.join(letters)
